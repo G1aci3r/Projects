@@ -1,0 +1,24 @@
+Quick Guide to linked S3 Bucket to Quicksight
+
+Amazon S3
+1.) Create a new bucket in Amaxon S3 or use existing bucket.
+      - If creating a new bucket, keep the default setting and create a bucket name.
+2.) Open bucket and upload 'Amazon-Bestseller-Dataset.csv'.
+3.) Open 'manifest.json' and on line 5 change "bucket-name" to your S3 bucket name.
+4.) Upload edited 'manifest.json' into your bucket.
+
+Amazon Quicksight
+1.) Open Quicksight (create or login into an existing account)
+2.) Click on Dataset on the left hand side and select S3.
+3.) Navigate back to S3 bucket and click on your manifest.json. Click 'Copy S3 URI'.  
+4.) Head back to Quicksight and paste URL under 'Upload a manifest file'.
+5.) Name data source
+6.) Then click visualize
+
+
+
+Done
+
+
+
+
