@@ -1,1 +1,0 @@
-Line 5, change "bucket-name" to your S3 bucket name.
