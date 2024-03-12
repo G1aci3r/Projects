@@ -1,0 +1,47 @@
+Utilizing AWS Route 53 and S3 services, follow these steps to seamlessly create and deploy your website.
+
+1) Start by purchasing a domain name through Route 53 and registering it.
+2) Once the domain is acquired, proceed to S3.
+3) In S3, create a new bucket with the same name as your domain (e.g., discoverwithdon.com).
+	- Choose the region closest to you for efficient deployment and reduced latency.
+	- Ensure "Block all public access" is unchecked to allow users to view your website.
+	- Keep other settings as default.
+4) Once the bucket is created, enter the bucket, and click on "Upload."
+5) Upload all website-related files (HTML, CSS, images, etc.).
+6) For static websites, navigate to properties inside the bucket after uploading files. Enable static website hosting, enter        the index document, and save changes.
+7) Inside the bucket, navigate to permissions, enter a bucket policy, and save changes.
+8) Example Bucket Policy (replace "Bucket-Name" with your bucket name):
+	- Example Bucket Policy (replace "Bucket-Name" with your bucket name):
+	
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::Bucket-Name/*"
+            ]
+        }
+    ]
+}
+
+
+8) S3 setup is complete. Return to Route 53.
+9) In Route 53, click on your website domain and create a record.
+10) Choose "Simple Routing" under Routing Policy and click next.
+11) Define a simple record with the following steps:
+	- Value/Route traffic to:
+		- Type "Alias to S3 website endpoint"
+	- Region:
+		- Select the region where your bucket is located.
+	- Enter S3 endpoint:
+		- Select the endpoint for your website.
+	- Click "Define simple record" to save your settings.
+
+
+Your website is now deployed and accessible to anyone!
